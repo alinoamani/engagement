@@ -19,6 +19,7 @@
 /* =====================================================
    PAGE RESET — حذف فاصله خالی بالای صفحه
    ===================================================== */
+
 html,
 body {
   margin: 0 !important;
@@ -41,10 +42,6 @@ body {
    VIDEO INTRO — FINAL FIX
    ===================================================== */
 
-/*
-   تا وقتی ویدیو تمام نشده:
-   صفحه کاملاً قفل است.
-*/
 body.intro-locked {
   overflow: hidden !important;
   height: 100vh !important;
@@ -52,10 +49,10 @@ body.intro-locked {
 }
 
 
-/*
+/* =====================================================
    HERO CONTENT
-   در تمام مدت پخش ویدیو کاملاً مخفی است.
-*/
+   ===================================================== */
+
 .hero .hero-content {
   opacity: 0 !important;
   visibility: hidden !important;
@@ -69,6 +66,7 @@ body.intro-locked {
    فقط بعد از پایان کامل ویدیو
    متن دعوتنامه نمایش داده می‌شود.
 */
+
 .hero.is-finished .hero-content {
   opacity: 1 !important;
   visibility: visible !important;
@@ -84,8 +82,8 @@ body.intro-locked {
 
 /*
    نوشته «برای شروع لمس کنید»
-   قبل از شروع ویدیو دیده می‌شود.
 */
+
 .opening-mark {
   opacity: 1 !important;
   visibility: visible !important;
@@ -97,6 +95,7 @@ body.intro-locked {
    به محض شروع ویدیو،
    نوشته شروع کاملاً محو می‌شود.
 */
+
 .hero.is-playing .opening-mark {
   opacity: 0 !important;
   visibility: hidden !important;
@@ -107,6 +106,7 @@ body.intro-locked {
 /*
    بعد از پایان هم نوشته شروع مخفی می‌ماند.
 */
+
 .hero.is-finished .opening-mark {
   opacity: 0 !important;
   visibility: hidden !important;
@@ -117,6 +117,7 @@ body.intro-locked {
 /*
    دکمه موزیک قبل از پایان ویدیو مخفی است.
 */
+
 .music-toggle {
   opacity: 0 !important;
   visibility: hidden !important;
@@ -127,6 +128,7 @@ body.intro-locked {
 /*
    بعد از پایان ویدیو دکمه موزیک ظاهر می‌شود.
 */
+
 body.intro-finished .music-toggle {
   opacity: 1 !important;
   visibility: visible !important;
@@ -137,6 +139,7 @@ body.intro-finished .music-toggle {
 /*
    انیمیشن ورود متن دعوتنامه
 */
+
 @keyframes invitationReveal {
 
   0% {
@@ -156,9 +159,8 @@ body.intro-finished .music-toggle {
 
 /*
    ویدیو Loop ندارد.
-   بنابراین فقط یک بار اجرا می‌شود
-   و بعد روی فریم آخر باقی می‌ماند.
 */
+
 .hero-video {
   display: block;
 }
@@ -168,6 +170,7 @@ body.intro-finished .music-toggle {
    در زمان Intro هیچ بخش دیگری
    نباید قابل مشاهده/اسکرول باشد.
 */
+
 body.intro-locked main {
   overflow: hidden !important;
 }
@@ -217,6 +220,7 @@ body.intro-locked main {
 }
 
 @media (max-width: 600px) {
+
   .notes-section {
     padding-top: 50px;
     padding-bottom: 60px;
@@ -236,12 +240,14 @@ body.intro-locked main {
     font-size: 14px;
     line-height: 2;
   }
+
 }
 
 </style>
 
 
 <style id="petal-effect-style">
+
 /* =====================================================
    RED PETAL FALL EFFECT
    ===================================================== */
@@ -260,6 +266,7 @@ body.intro-locked main {
 #petalCanvas.is-active {
   opacity: 1;
 }
+
 </style>
 
 </head>
@@ -267,7 +274,12 @@ body.intro-locked main {
 
 <body class="intro-locked">
 
-<canvas id="petalCanvas" aria-hidden="true"></canvas>
+
+<canvas
+  id="petalCanvas"
+  aria-hidden="true"
+></canvas>
+
 
 
 <!-- =====================================================
@@ -290,6 +302,7 @@ body.intro-locked main {
 </button>
 
 
+
 <main>
 
 
@@ -297,14 +310,11 @@ body.intro-locked main {
      HERO / VIDEO INTRO
      ===================================================== -->
 
-<section class="hero" id="hero">
+<section
+  class="hero"
+  id="hero"
+>
 
-
-  <!--
-    خیلی مهم:
-    loop ندارد.
-    بنابراین ویدیو فقط یک بار پخش می‌شود.
-  -->
 
   <video
     class="hero-video"
@@ -322,9 +332,9 @@ body.intro-locked main {
   <div class="hero-geometry"></div>
 
 
+
   <!-- =================================================
        OPENING SCREEN
-       فقط قبل از شروع ویدیو
        ================================================= -->
 
   <div class="opening-mark">
@@ -342,11 +352,9 @@ body.intro-locked main {
   </div>
 
 
+
   <!-- =================================================
        INVITATION CONTENT
-       
-       در زمان پخش ویدیو کاملاً مخفی است.
-       فقط بعد از event = ended ظاهر می‌شود.
        ================================================= -->
 
   <div class="hero-content">
@@ -422,21 +430,31 @@ body.intro-locked main {
 </section>
 
 
+
 <!-- =====================================================
      WELCOME
      ===================================================== -->
 
-<section class="welcome-section section-pad">
+<section
+  class="welcome-section section-pad"
+>
 
-  <div class="section-shell welcome-shell reveal">
+  <div
+    class="section-shell welcome-shell reveal"
+  >
 
 
-    <div class="arch-emblem" aria-label="عکس علی و مبینا">
+    <div
+      class="arch-emblem"
+      aria-label="عکس علی و مبینا"
+    >
+
       <img
         class="arch-photo"
         src="assets/couple.jpg"
         alt="علی و مبینا"
       >
+
     </div>
 
 
@@ -474,6 +492,7 @@ body.intro-locked main {
 </section>
 
 
+
 <!-- =====================================================
      DATE REVEAL
      ===================================================== -->
@@ -483,34 +502,31 @@ body.intro-locked main {
   id="date"
 >
 
-  <div class="section-shell reveal">
+  <div
+    class="section-shell reveal"
+  >
 
 
     <div class="section-heading">
 
 
       <span class="eyebrow">
-
         تاریخ مراسم
-
       </span>
 
 
       <h2>
-
         The Date
-
       </h2>
 
 
       <div class="ornament">
-
         <i></i>
-
       </div>
 
 
     </div>
+
 
 
     <div
@@ -523,30 +539,22 @@ body.intro-locked main {
 
 
         <p class="date-kicker">
-
           جشن نامزدی
-
         </p>
 
 
         <p class="date-main">
-
           26 شهریور 1405
-
         </p>
 
 
         <p class="date-day">
-
           پنجشنبه
-
         </p>
 
 
         <p class="date-time">
-
           ساعت ۱۹:۰۰
-
         </p>
 
 
@@ -588,44 +596,46 @@ body.intro-locked main {
 </section>
 
 
+
 <!-- =====================================================
      PROGRAM
      ===================================================== -->
 
-<section class="program-section section-pad">
+<section
+  class="program-section section-pad"
+>
 
-  <div class="section-shell reveal">
+  <div
+    class="section-shell reveal"
+  >
 
 
     <div class="section-heading">
 
 
       <span class="eyebrow">
-
         برنامه مراسم
-
       </span>
 
 
       <h2>
-
         Program
-
       </h2>
 
 
       <div class="ornament">
-
         <i></i>
-
       </div>
 
 
     </div>
 
 
+
     <div class="timeline">
 
+
+      <!-- 19:00 -->
 
       <article>
 
@@ -648,6 +658,9 @@ body.intro-locked main {
       </article>
 
 
+
+      <!-- 20:00 -->
+
       <article>
 
         <div>
@@ -657,7 +670,7 @@ body.intro-locked main {
           </h3>
 
           <p>
-            بله‌برون 
+            بله‌برون
           </p>
 
         </div>
@@ -669,26 +682,8 @@ body.intro-locked main {
       </article>
 
 
-      <article>
 
-        <div>
-
-          <h3>
-            شام و پذیرایی
-          </h3>
-
-          <p>
-            سرو شام در کنار موسیقی زنده
-          </p>
-
-        </div>
-
-        <time>
-          ۲۱:۰۰
-        </time>
-
-      </article>
-
+      <!-- 21:00 -->
 
       <article>
 
@@ -700,6 +695,30 @@ body.intro-locked main {
 
           <p>
             رقص و شادی تا پایان شب
+          </p>
+
+        </div>
+
+        <time>
+          ۲۱:۰۰
+        </time>
+
+      </article>
+
+
+
+      <!-- 22:00 -->
+
+      <article>
+
+        <div>
+
+          <h3>
+            شام و پذیرایی
+          </h3>
+
+          <p>
+            سرو شام در کنار موسیقی زنده
           </p>
 
         </div>
@@ -718,50 +737,46 @@ body.intro-locked main {
 </section>
 
 
+
 <!-- =====================================================
      VENUE
      ===================================================== -->
 
-<section class="venue-section section-pad">
+<section
+  class="venue-section section-pad"
+>
 
-  <div class="section-shell reveal">
+  <div
+    class="section-shell reveal"
+  >
 
 
     <div class="venue-card">
 
 
       <span class="eyebrow">
-
         مکان مراسم
-
       </span>
 
 
       <div class="venue-divider">
-
         <span>♦</span>
-
       </div>
 
 
       <h2>
-
         Venue
-
       </h2>
 
 
       <p>
-
-        تهران، مرزداران، تالار الماس<br>
-
-
+        تهران، مرزداران، تالار الماس
       </p>
 
 
       <a
         class="venue-map-button"
-        href="https://maps.app.goo.gl/wjcCVWNvfpQMnTHb9"
+        href="https://maps.app.goo.gl/U9QhxB9HbpgUjGHe7?g_st=ic"
         target="_blank"
         rel="noopener"
       >
@@ -783,55 +798,118 @@ body.intro-locked main {
      IMPORTANT NOTES
      ===================================================== -->
 
-<section class="notes-section section-pad">
-  <div class="section-shell reveal">
+<section
+  class="notes-section section-pad"
+>
+
+  <div
+    class="section-shell reveal"
+  >
+
 
     <div class="section-heading">
-      <span class="eyebrow">یادآوری</span>
 
-      <h2>نکات مراسم</h2>
+      <span class="eyebrow">
+        یادآوری
+      </span>
+
+
+      <h2>
+        نکات مراسم
+      </h2>
+
 
       <div class="ornament">
         <i></i>
       </div>
+
     </div>
+
+
 
     <div class="notes-card">
 
-      <div class="note-item">
-        <span class="note-icon">♦</span>
-        <p>
-          خواهشمندیم از عکاسی و فیلم‌برداری در طول مراسم اکیداً خودداری فرمایید
-          و ثبت لحظات این شب را به تیم عکاسی بسپارید.
-        </p>
-      </div>
+
+      <!-- 1 -->
 
       <div class="note-item">
-        <span class="note-icon">♦</span>
+
+        <span class="note-icon">
+          ♦
+        </span>
+
         <p>
+
           حضور شما در تک‌تک لحظات این شب برای ما ارزشمند است؛
           لطفاً رأس ساعت آغاز جشن در کنار ما باشید.
+
         </p>
+
       </div>
 
+
+
+      <!-- 2 -->
+
       <div class="note-item">
-        <span class="note-icon">♦</span>
+
+        <span class="note-icon">
+          ♦
+        </span>
+
         <p>
+
           احتراماً در نظر داشته باشید مراسم به صورت مختلط برگزار می‌شود.
+
         </p>
+
       </div>
 
+
+
+      <!-- 3 -->
+
       <div class="note-item">
-        <span class="note-icon">♦</span>
+
+        <span class="note-icon">
+          ♦
+        </span>
+
         <p>
+
           چنانچه سعادت میزبانی شما را نداریم، لطفاً ما را مطلع فرمایید.
+
         </p>
+
       </div>
+
+
+
+      <!-- 4 — عکاسی، آخرین بند -->
+
+      <div class="note-item">
+
+        <span class="note-icon">
+          ♦
+        </span>
+
+        <p>
+
+          خواهشمندیم از عکاسی و فیلم‌برداری در طول مراسم اکیداً خودداری فرمایید
+          و ثبت لحظات این شب را به تیم عکاسی بسپارید.
+
+        </p>
+
+      </div>
+
 
     </div>
 
   </div>
+
 </section>
+
+
 
 <!-- =====================================================
      CLOSING
@@ -894,6 +972,7 @@ body.intro-locked main {
 </main>
 
 
+
 <!-- =====================================================
      BACKGROUND MUSIC
      ===================================================== -->
@@ -904,6 +983,7 @@ body.intro-locked main {
   loop
   preload="auto"
 ></audio>
+
 
 
 <script>
@@ -932,21 +1012,11 @@ let started = false;
    START EXPERIENCE
    ===================================================== */
 
-/*
-   فقط با اولین لمس/کلیک اجرا می‌شود.
-
-   توجه:
-   اینجا عمداً is-open نداریم.
-   چون is-open باعث نمایش زودهنگام متن می‌شد.
-*/
-
 function startExperience() {
-
 
   if (started) {
     return;
   }
-
 
   started = true;
 
@@ -1015,6 +1085,10 @@ function startExperience() {
 
       console.log('MUSIC STARTED');
 
+      musicToggle.classList.add(
+        'is-playing'
+      );
+
     })
     .catch((error) => {
 
@@ -1056,24 +1130,9 @@ hero.addEventListener(
    VIDEO ENDED
    ===================================================== */
 
-/*
-   این مهم‌ترین قسمت کد است.
-
-   هیچ متنی قبل از این قسمت نمایش داده نمی‌شود.
-
-   وقتی ویدیو واقعاً تمام شد:
-   1. ویدیو متوقف می‌شود
-   2. روی فریم آخر باقی می‌ماند
-   3. is-finished اضافه می‌شود
-   4. متن دعوتنامه ظاهر می‌شود
-   5. اسکرول آزاد می‌شود
-   6. دکمه موزیک ظاهر می‌شود
-*/
-
 heroVideo.addEventListener(
   'ended',
   function () {
-
 
     console.log('VIDEO FINISHED');
 
@@ -1112,7 +1171,6 @@ heroVideo.addEventListener(
       'intro-finished'
     );
 
-
   }
 );
 
@@ -1124,7 +1182,6 @@ heroVideo.addEventListener(
 musicToggle.addEventListener(
   'click',
   function (e) {
-
 
     /*
       کلیک روی دکمه موزیک
@@ -1155,7 +1212,6 @@ musicToggle.addEventListener(
 
     if (bgMusic.paused) {
 
-
       bgMusic
         .play()
         .then(() => {
@@ -1174,8 +1230,8 @@ musicToggle.addEventListener(
 
         });
 
-
     }
+
 
     /*
       خاموش کردن موزیک
@@ -1183,14 +1239,11 @@ musicToggle.addEventListener(
 
     else {
 
-
       bgMusic.pause();
-
 
       musicToggle.classList.remove(
         'is-playing'
       );
-
 
     }
 
@@ -1212,31 +1265,25 @@ const io =
   new IntersectionObserver(
     (entries) => {
 
-
       entries.forEach(
         (entry) => {
-
 
           if (
             entry.isIntersecting
           ) {
 
-
             entry.target.classList.add(
               'is-visible'
             );
-
 
             io.unobserve(
               entry.target
             );
 
-
           }
 
         }
       );
-
 
     },
     {
@@ -1291,7 +1338,6 @@ let revealed = false;
 
 function sizeCanvas() {
 
-
   const rect =
     scratchWrap.getBoundingClientRect();
 
@@ -1314,7 +1360,6 @@ function sizeCanvas() {
    ===================================================== */
 
 function paintScratchLayer() {
-
 
   ctx.globalCompositeOperation =
     'source-over';
@@ -1393,7 +1438,6 @@ function paintScratchLayer() {
 
 function getPos(e) {
 
-
   const rect =
     canvas.getBoundingClientRect();
 
@@ -1406,7 +1450,6 @@ function getPos(e) {
 
   return {
 
-
     x:
       (
         point.clientX -
@@ -1418,7 +1461,6 @@ function getPos(e) {
         rect.width
       ),
 
-
     y:
       (
         point.clientY -
@@ -1429,7 +1471,6 @@ function getPos(e) {
         canvas.height /
         rect.height
       )
-
 
   };
 
@@ -1444,7 +1485,6 @@ let scratching = false;
    ===================================================== */
 
 function scratchAt(x, y) {
-
 
   ctx.globalCompositeOperation =
     'destination-out';
@@ -1476,7 +1516,6 @@ function scratchAt(x, y) {
 
 function checkRevealProgress() {
 
-
   if (revealed) {
     return;
   }
@@ -1505,7 +1544,6 @@ function checkRevealProgress() {
     i < data.length;
     i += step
   ) {
-
 
     total++;
 
@@ -1537,7 +1575,6 @@ function checkRevealProgress() {
    ===================================================== */
 
 function revealScratch() {
-
 
   revealed = true;
 
@@ -1577,7 +1614,12 @@ function revealScratch() {
   scratchNote.hidden =
     false;
 
-  /* وقتی تاریخ کامل نمایان شد، بارش گلبرگ‌ها بلافاصله شروع می‌شود */
+
+  /*
+    وقتی تاریخ کامل نمایان شد،
+    بارش گلبرگ‌ها بلافاصله شروع می‌شود.
+  */
+
   startPetalFall();
 
 }
@@ -1588,7 +1630,6 @@ function revealScratch() {
    ===================================================== */
 
 function handleStart(e) {
-
 
   scratching = true;
 
@@ -1610,7 +1651,6 @@ function handleStart(e) {
    ===================================================== */
 
 function handleMove(e) {
-
 
   if (!scratching) {
     return;
@@ -1640,7 +1680,6 @@ function handleMove(e) {
    ===================================================== */
 
 function handleEnd() {
-
 
   scratching = false;
 
@@ -1727,7 +1766,7 @@ sizeCanvas();
 
 
 /* =====================================================
-   RED PETALS — START WHEN THE DATE IS FULLY REVEALED
+   RED PETALS — START WHEN DATE IS FULLY REVEALED
    ===================================================== */
 
 const petalCanvas =
@@ -1737,62 +1776,124 @@ const petalCtx =
   petalCanvas.getContext('2d');
 
 let petals = [];
-let petalAnimationId = null;
-let petalStartTime = 0;
+
+let petalAnimationId =
+  null;
+
+let petalStartTime =
+  0;
+
 
 function resizePetalCanvas() {
-  const dpr = Math.min(window.devicePixelRatio || 1, 2);
 
-  petalCanvas.width = Math.floor(window.innerWidth * dpr);
-  petalCanvas.height = Math.floor(window.innerHeight * dpr);
+  const dpr =
+    Math.min(
+      window.devicePixelRatio || 1,
+      2
+    );
 
-  petalCanvas.style.width = window.innerWidth + 'px';
-  petalCanvas.style.height = window.innerHeight + 'px';
 
-  petalCtx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  petalCanvas.width =
+    Math.floor(
+      window.innerWidth * dpr
+    );
+
+
+  petalCanvas.height =
+    Math.floor(
+      window.innerHeight * dpr
+    );
+
+
+  petalCanvas.style.width =
+    window.innerWidth + 'px';
+
+
+  petalCanvas.style.height =
+    window.innerHeight + 'px';
+
+
+  petalCtx.setTransform(
+    dpr,
+    0,
+    0,
+    dpr,
+    0,
+    0
+  );
+
 }
 
-function createPetal(startAnywhere = false) {
+
+function createPetal(
+  startAnywhere = false
+) {
+
   const size =
     7 + Math.random() * 12;
 
+
   return {
+
     x:
-      Math.random() * window.innerWidth,
+      Math.random() *
+      window.innerWidth,
 
     y:
       startAnywhere
-        ? Math.random() * window.innerHeight
-        : -20 - Math.random() * window.innerHeight * 0.35,
+        ? Math.random() *
+          window.innerHeight
+        : -20 -
+          Math.random() *
+          window.innerHeight *
+          0.35,
 
     size,
 
     speed:
-      1.8 + Math.random() * 3.4,
+      1.8 +
+      Math.random() *
+      3.4,
 
     drift:
-      -0.7 + Math.random() * 1.4,
+      -0.7 +
+      Math.random() *
+      1.4,
 
     rotation:
-      Math.random() * Math.PI * 2,
+      Math.random() *
+      Math.PI *
+      2,
 
     rotationSpeed:
-      -0.045 + Math.random() * 0.09,
+      -0.045 +
+      Math.random() *
+      0.09,
 
     swing:
-      Math.random() * Math.PI * 2,
+      Math.random() *
+      Math.PI *
+      2,
 
     swingSpeed:
-      0.015 + Math.random() * 0.035,
+      0.015 +
+      Math.random() *
+      0.035,
 
     opacity:
-      0.72 + Math.random() * 0.28,
+      0.72 +
+      Math.random() *
+      0.28,
 
     width:
-      0.65 + Math.random() * 0.45,
+      0.65 +
+      Math.random() *
+      0.45,
 
     height:
-      0.8 + Math.random() * 0.65,
+      0.8 +
+      Math.random() *
+      0.65,
 
     color:
       Math.random() > 0.45
@@ -1800,96 +1901,185 @@ function createPetal(startAnywhere = false) {
         : Math.random() > 0.5
           ? '#c51624'
           : '#e12b38'
+
   };
+
 }
 
+
 function drawPetal(p) {
+
   petalCtx.save();
 
-  petalCtx.translate(p.x, p.y);
-  petalCtx.rotate(p.rotation);
 
-  petalCtx.globalAlpha = p.opacity;
+  petalCtx.translate(
+    p.x,
+    p.y
+  );
+
+
+  petalCtx.rotate(
+    p.rotation
+  );
+
+
+  petalCtx.globalAlpha =
+    p.opacity;
+
 
   petalCtx.beginPath();
 
-  petalCtx.moveTo(0, -p.size * p.height);
 
-  petalCtx.bezierCurveTo(
-    p.size * 0.95,
-    -p.size * 0.7,
-    p.size * 1.15,
-    p.size * 0.45,
-    0,
-    p.size * p.height
-  );
-
-  petalCtx.bezierCurveTo(
-    -p.size * 1.15,
-    p.size * 0.45,
-    -p.size * 0.95,
-    -p.size * 0.7,
+  petalCtx.moveTo(
     0,
     -p.size * p.height
   );
 
+
+  petalCtx.bezierCurveTo(
+
+    p.size * 0.95,
+    -p.size * 0.7,
+
+    p.size * 1.15,
+    p.size * 0.45,
+
+    0,
+    p.size * p.height
+
+  );
+
+
+  petalCtx.bezierCurveTo(
+
+    -p.size * 1.15,
+    p.size * 0.45,
+
+    -p.size * 0.95,
+    -p.size * 0.7,
+
+    0,
+    -p.size * p.height
+
+  );
+
+
   petalCtx.closePath();
 
-  petalCtx.fillStyle = p.color;
+
+  petalCtx.fillStyle =
+    p.color;
+
+
   petalCtx.fill();
 
-  /* subtle highlight */
+
+  /*
+    subtle highlight
+  */
+
   petalCtx.beginPath();
+
+
   petalCtx.ellipse(
+
     -p.size * 0.18,
     -p.size * 0.18,
+
     p.size * 0.12,
     p.size * 0.35,
+
     -0.35,
     0,
     Math.PI * 2
+
   );
 
-  petalCtx.fillStyle = 'rgba(255,255,255,.18)';
+
+  petalCtx.fillStyle =
+    'rgba(255,255,255,.18)';
+
+
   petalCtx.fill();
 
+
   petalCtx.restore();
+
 }
 
-function startPetalFall() {
-  if (!petalCanvas) return;
 
-  cancelAnimationFrame(petalAnimationId);
+function startPetalFall() {
+
+  if (!petalCanvas) {
+    return;
+  }
+
+
+  cancelAnimationFrame(
+    petalAnimationId
+  );
+
 
   resizePetalCanvas();
 
+
   petals = [];
 
-  /* بارش پرگلبرگ و کاملاً قابل مشاهده */
+
+  /*
+    بارش پرگلبرگ و کاملاً قابل مشاهده
+  */
+
   const count =
-    window.innerWidth < 600 ? 180 : 280;
+    window.innerWidth < 600
+      ? 180
+      : 280;
 
-  for (let i = 0; i < count; i++) {
-    petals.push(createPetal(true));
-  }
 
-  petalCanvas.classList.add('is-active');
+  for (
+    let i = 0;
+    i < count;
+    i++
+  ) {
 
-  petalStartTime = performance.now();
-
-  function animatePetals(now) {
-    const elapsed =
-      now - petalStartTime;
-
-    petalCtx.clearRect(
-      0,
-      0,
-      window.innerWidth,
-      window.innerHeight
+    petals.push(
+      createPetal(true)
     );
 
+  }
+
+
+  petalCanvas.classList.add(
+    'is-active'
+  );
+
+
+  petalStartTime =
+    performance.now();
+
+
+  function animatePetals(now) {
+
+    const elapsed =
+      now -
+      petalStartTime;
+
+
+    petalCtx.clearRect(
+
+      0,
+      0,
+
+      window.innerWidth,
+      window.innerHeight
+
+    );
+
+
     for (const p of petals) {
+
       p.y += p.speed;
+
 
       p.x +=
         p.drift +
@@ -1897,54 +2087,114 @@ function startPetalFall() {
           p.swing
         ) * 0.55;
 
-      p.swing += p.swingSpeed;
 
-      p.rotation += p.rotationSpeed;
+      p.swing +=
+        p.swingSpeed;
 
-      /* Wrap horizontally */
-      if (p.x < -30) {
-        p.x = window.innerWidth + 30;
+
+      p.rotation +=
+        p.rotationSpeed;
+
+
+      /*
+        Wrap horizontally
+      */
+
+      if (
+        p.x < -30
+      ) {
+
+        p.x =
+          window.innerWidth +
+          30;
+
       }
 
-      if (p.x > window.innerWidth + 30) {
+
+      if (
+        p.x >
+        window.innerWidth + 30
+      ) {
+
         p.x = -30;
+
       }
 
-      /* Recycle petals that reach the bottom */
-      if (p.y > window.innerHeight + 30) {
+
+      /*
+        Recycle petals
+      */
+
+      if (
+        p.y >
+        window.innerHeight + 30
+      ) {
+
         Object.assign(
           p,
           createPetal(false)
         );
+
       }
 
+
       drawPetal(p);
+
     }
+
 
     /*
-      Keep the shower going for about 12 seconds,
-      then let the remaining petals finish falling.
+      Keep the shower going
+      for about 12 seconds.
     */
-    if (elapsed < 12000) {
-      petalAnimationId =
-        requestAnimationFrame(animatePetals);
-    } else {
-      petalCanvas.classList.remove('is-active');
 
-      setTimeout(() => {
-        petalCtx.clearRect(
-          0,
-          0,
-          window.innerWidth,
-          window.innerHeight
+    if (
+      elapsed < 12000
+    ) {
+
+      petalAnimationId =
+        requestAnimationFrame(
+          animatePetals
         );
-      }, 300);
+
     }
+
+    else {
+
+      petalCanvas.classList.remove(
+        'is-active'
+      );
+
+
+      setTimeout(
+        () => {
+
+          petalCtx.clearRect(
+
+            0,
+            0,
+
+            window.innerWidth,
+            window.innerHeight
+
+          );
+
+        },
+        300
+      );
+
+    }
+
   }
 
+
   petalAnimationId =
-    requestAnimationFrame(animatePetals);
+    requestAnimationFrame(
+      animatePetals
+    );
+
 }
+
 
 window.addEventListener(
   'resize',
