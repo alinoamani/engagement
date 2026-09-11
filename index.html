@@ -1,0 +1,1957 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+  name="viewport"
+  content="width=device-width, initial-scale=1, viewport-fit=cover"
+>
+
+<title>دعوت نامزدی | علی و مبینا</title>
+
+<link rel="stylesheet" href="style.css">
+
+<style>
+
+/* =====================================================
+   PAGE RESET — حذف فاصله خالی بالای صفحه
+   ===================================================== */
+html,
+body {
+  margin: 0 !important;
+  padding: 0 !important;
+  width: 100%;
+  min-height: 100%;
+  overflow-x: hidden;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+}
+
+
+/* =====================================================
+   VIDEO INTRO — FINAL FIX
+   ===================================================== */
+
+/*
+   تا وقتی ویدیو تمام نشده:
+   صفحه کاملاً قفل است.
+*/
+body.intro-locked {
+  overflow: hidden !important;
+  height: 100vh !important;
+  height: 100svh !important;
+}
+
+
+/*
+   HERO CONTENT
+   در تمام مدت پخش ویدیو کاملاً مخفی است.
+*/
+.hero .hero-content {
+  opacity: 0 !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+  transform: translateY(25px);
+  animation: none !important;
+}
+
+
+/*
+   فقط بعد از پایان کامل ویدیو
+   متن دعوتنامه نمایش داده می‌شود.
+*/
+.hero.is-finished .hero-content {
+  opacity: 1 !important;
+  visibility: visible !important;
+  pointer-events: auto !important;
+
+  animation:
+    invitationReveal
+    1.4s
+    cubic-bezier(.16,.75,.25,1)
+    both !important;
+}
+
+
+/*
+   نوشته «برای شروع لمس کنید»
+   قبل از شروع ویدیو دیده می‌شود.
+*/
+.opening-mark {
+  opacity: 1 !important;
+  visibility: visible !important;
+  pointer-events: auto;
+}
+
+
+/*
+   به محض شروع ویدیو،
+   نوشته شروع کاملاً محو می‌شود.
+*/
+.hero.is-playing .opening-mark {
+  opacity: 0 !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+}
+
+
+/*
+   بعد از پایان هم نوشته شروع مخفی می‌ماند.
+*/
+.hero.is-finished .opening-mark {
+  opacity: 0 !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+}
+
+
+/*
+   دکمه موزیک قبل از پایان ویدیو مخفی است.
+*/
+.music-toggle {
+  opacity: 0 !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+}
+
+
+/*
+   بعد از پایان ویدیو دکمه موزیک ظاهر می‌شود.
+*/
+body.intro-finished .music-toggle {
+  opacity: 1 !important;
+  visibility: visible !important;
+  pointer-events: auto !important;
+}
+
+
+/*
+   انیمیشن ورود متن دعوتنامه
+*/
+@keyframes invitationReveal {
+
+  0% {
+    opacity: 0;
+    transform: translateY(35px);
+    filter: blur(6px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+
+}
+
+
+/*
+   ویدیو Loop ندارد.
+   بنابراین فقط یک بار اجرا می‌شود
+   و بعد روی فریم آخر باقی می‌ماند.
+*/
+.hero-video {
+  display: block;
+}
+
+
+/*
+   در زمان Intro هیچ بخش دیگری
+   نباید قابل مشاهده/اسکرول باشد.
+*/
+body.intro-locked main {
+  overflow: hidden !important;
+}
+
+
+/* =====================================================
+   IMPORTANT NOTES
+   ===================================================== */
+
+.notes-section {
+  padding-top: 70px;
+  padding-bottom: 80px;
+}
+
+.notes-card {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 30px 28px;
+  border: 1px solid rgba(185, 138, 70, 0.35);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.04);
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.06);
+}
+
+.note-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 18px 0;
+}
+
+.note-item + .note-item {
+  border-top: 1px solid rgba(185, 138, 70, 0.18);
+}
+
+.note-icon {
+  flex: 0 0 auto;
+  margin-top: 5px;
+  font-size: 11px;
+}
+
+.note-item p {
+  margin: 0;
+  line-height: 2.15;
+  text-align: right;
+  font-size: 15px;
+}
+
+@media (max-width: 600px) {
+  .notes-section {
+    padding-top: 50px;
+    padding-bottom: 60px;
+  }
+
+  .notes-card {
+    padding: 20px 18px;
+    border-radius: 15px;
+  }
+
+  .note-item {
+    gap: 11px;
+    padding: 15px 0;
+  }
+
+  .note-item p {
+    font-size: 14px;
+    line-height: 2;
+  }
+}
+
+</style>
+
+
+<style id="petal-effect-style">
+/* =====================================================
+   RED PETAL FALL EFFECT
+   ===================================================== */
+
+#petalCanvas {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 99999;
+  opacity: 0;
+  transition: opacity .25s ease;
+}
+
+#petalCanvas.is-active {
+  opacity: 1;
+}
+</style>
+
+</head>
+
+
+<body class="intro-locked">
+
+<canvas id="petalCanvas" aria-hidden="true"></canvas>
+
+
+<!-- =====================================================
+     MUSIC BUTTON
+     ===================================================== -->
+
+<button
+  class="music-toggle"
+  id="musicToggle"
+  type="button"
+  aria-label="کنترل موزیک"
+>
+
+  <span class="music-bars">
+    <i></i>
+    <i></i>
+    <i></i>
+  </span>
+
+</button>
+
+
+<main>
+
+
+<!-- =====================================================
+     HERO / VIDEO INTRO
+     ===================================================== -->
+
+<section class="hero" id="hero">
+
+
+  <!--
+    خیلی مهم:
+    loop ندارد.
+    بنابراین ویدیو فقط یک بار پخش می‌شود.
+  -->
+
+  <video
+    class="hero-video"
+    id="heroVideo"
+    src="assets/video.mp4"
+    muted
+    playsinline
+    webkit-playsinline
+    preload="auto"
+  ></video>
+
+
+  <div class="hero-veil"></div>
+
+  <div class="hero-geometry"></div>
+
+
+  <!-- =================================================
+       OPENING SCREEN
+       فقط قبل از شروع ویدیو
+       ================================================= -->
+
+  <div class="opening-mark">
+
+    <div class="opening-mono">
+      A<i></i>M
+    </div>
+
+    <div class="opening-tap">
+      برای شروع لمس کنید
+    </div>
+
+    <span class="opening-ripple"></span>
+
+  </div>
+
+
+  <!-- =================================================
+       INVITATION CONTENT
+       
+       در زمان پخش ویدیو کاملاً مخفی است.
+       فقط بعد از event = ended ظاهر می‌شود.
+       ================================================= -->
+
+  <div class="hero-content">
+
+
+    <p class="bismillah">
+      به نام خدا
+    </p>
+
+
+    <p class="hero-welcome">
+      با نهایت خوشحالی و افتخار،<br>
+      حضور گرم شما را در جشن نامزدی خود خواستاریم
+    </p>
+
+
+    <div class="couple-names">
+
+      <h1>
+
+        Ali
+
+        <span class="name-ampersand">
+          &amp;
+        </span>
+
+        Mobina
+
+      </h1>
+
+    </div>
+
+
+    <p class="hero-invitation">
+
+      شما را به مراسم نامزدی «مبینا و علی» دعوت می‌کنیم<br>
+
+      حضورتان، زیباترین هدیه این شب خواهد بود
+
+    </p>
+
+
+    <div class="hero-divider">
+
+      <span>♦</span>
+
+    </div>
+
+
+    <p class="hero-closing">
+
+      منتظر دیدارتان هستیم
+
+    </p>
+
+
+    <a
+      href="#date"
+      class="scroll-cue"
+    >
+
+      <span>
+        ادامه
+      </span>
+
+      <i></i>
+
+    </a>
+
+
+  </div>
+
+</section>
+
+
+<!-- =====================================================
+     WELCOME
+     ===================================================== -->
+
+<section class="welcome-section section-pad">
+
+  <div class="section-shell welcome-shell reveal">
+
+
+    <div class="arch-emblem" aria-label="عکس علی و مبینا">
+      <img
+        class="arch-photo"
+        src="assets/couple.jpg"
+        alt="علی و مبینا"
+      >
+    </div>
+
+
+    <div class="welcome-copy">
+
+      <span class="eyebrow">
+        دعوت‌نامه
+      </span>
+
+
+      <h2>
+        Welcome
+      </h2>
+
+
+      <p>
+
+        در کنار هم، آغازگر فصلی تازه از زندگی می‌شویم.
+        مشتاقیم این لحظه را در کنار عزیزانمان جشن بگیریم
+        و از حضور شما در این شب خاص خوشحال خواهیم شد.
+
+      </p>
+
+
+      <p class="signature">
+
+        Ali &amp; Mobina
+
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =====================================================
+     DATE REVEAL
+     ===================================================== -->
+
+<section
+  class="scratch-section section-pad"
+  id="date"
+>
+
+  <div class="section-shell reveal">
+
+
+    <div class="section-heading">
+
+
+      <span class="eyebrow">
+
+        تاریخ مراسم
+
+      </span>
+
+
+      <h2>
+
+        The Date
+
+      </h2>
+
+
+      <div class="ornament">
+
+        <i></i>
+
+      </div>
+
+
+    </div>
+
+
+    <div
+      class="scratch-wrap"
+      id="scratchWrap"
+    >
+
+
+      <div class="date-reveal">
+
+
+        <p class="date-kicker">
+
+          جشن نامزدی
+
+        </p>
+
+
+        <p class="date-main">
+
+          26 شهریور 1405
+
+        </p>
+
+
+        <p class="date-day">
+
+          پنجشنبه
+
+        </p>
+
+
+        <p class="date-time">
+
+          ساعت ۱۹:۰۰
+
+        </p>
+
+
+      </div>
+
+
+      <canvas
+        class="scratch-canvas"
+        id="scratchCanvas"
+      ></canvas>
+
+
+    </div>
+
+
+    <p
+      class="scratch-hint"
+      id="scratchHint"
+    >
+
+      با انگشت‌تان روی کارت بکشید تا تاریخ آشکار شود
+
+    </p>
+
+
+    <p
+      class="scratch-note"
+      id="scratchNote"
+      hidden
+    >
+
+      در تقویم‌تان یادداشت کنید — منتظرتان هستیم
+
+    </p>
+
+
+  </div>
+
+</section>
+
+
+<!-- =====================================================
+     PROGRAM
+     ===================================================== -->
+
+<section class="program-section section-pad">
+
+  <div class="section-shell reveal">
+
+
+    <div class="section-heading">
+
+
+      <span class="eyebrow">
+
+        برنامه مراسم
+
+      </span>
+
+
+      <h2>
+
+        Program
+
+      </h2>
+
+
+      <div class="ornament">
+
+        <i></i>
+
+      </div>
+
+
+    </div>
+
+
+    <div class="timeline">
+
+
+      <article>
+
+        <div>
+
+          <h3>
+            خوش‌آمدگویی و پذیرایی
+          </h3>
+
+          <p>
+            استقبال از مهمانان با شیرینی و شربت
+          </p>
+
+        </div>
+
+        <time>
+          ۱۹:۰۰
+        </time>
+
+      </article>
+
+
+      <article>
+
+        <div>
+
+          <h3>
+            مراسم نامزدی
+          </h3>
+
+          <p>
+            بله‌برون 
+          </p>
+
+        </div>
+
+        <time>
+          ۲۰:۰۰
+        </time>
+
+      </article>
+
+
+      <article>
+
+        <div>
+
+          <h3>
+            شام و پذیرایی
+          </h3>
+
+          <p>
+            سرو شام در کنار موسیقی زنده
+          </p>
+
+        </div>
+
+        <time>
+          ۲۱:۰۰
+        </time>
+
+      </article>
+
+
+      <article>
+
+        <div>
+
+          <h3>
+            جشن و پایکوبی
+          </h3>
+
+          <p>
+            رقص و شادی تا پایان شب
+          </p>
+
+        </div>
+
+        <time>
+          ۲۲:۰۰
+        </time>
+
+      </article>
+
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =====================================================
+     VENUE
+     ===================================================== -->
+
+<section class="venue-section section-pad">
+
+  <div class="section-shell reveal">
+
+
+    <div class="venue-card">
+
+
+      <span class="eyebrow">
+
+        مکان مراسم
+
+      </span>
+
+
+      <div class="venue-divider">
+
+        <span>♦</span>
+
+      </div>
+
+
+      <h2>
+
+        Venue
+
+      </h2>
+
+
+      <p>
+
+        تهران، مرزداران، تالار الماس<br>
+
+
+      </p>
+
+
+      <a
+        class="venue-map-button"
+        href="https://maps.app.goo.gl/wjcCVWNvfpQMnTHb9"
+        target="_blank"
+        rel="noopener"
+      >
+
+        مشاهده مسیر روی نقشه
+
+      </a>
+
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     IMPORTANT NOTES
+     ===================================================== -->
+
+<section class="notes-section section-pad">
+  <div class="section-shell reveal">
+
+    <div class="section-heading">
+      <span class="eyebrow">یادآوری</span>
+
+      <h2>نکات مراسم</h2>
+
+      <div class="ornament">
+        <i></i>
+      </div>
+    </div>
+
+    <div class="notes-card">
+
+      <div class="note-item">
+        <span class="note-icon">♦</span>
+        <p>
+          خواهشمندیم از عکاسی و فیلم‌برداری در طول مراسم اکیداً خودداری فرمایید
+          و ثبت لحظات این شب را به تیم عکاسی بسپارید.
+        </p>
+      </div>
+
+      <div class="note-item">
+        <span class="note-icon">♦</span>
+        <p>
+          حضور شما در تک‌تک لحظات این شب برای ما ارزشمند است؛
+          لطفاً رأس ساعت آغاز جشن در کنار ما باشید.
+        </p>
+      </div>
+
+      <div class="note-item">
+        <span class="note-icon">♦</span>
+        <p>
+          احتراماً در نظر داشته باشید مراسم به صورت مختلط برگزار می‌شود.
+        </p>
+      </div>
+
+      <div class="note-item">
+        <span class="note-icon">♦</span>
+        <p>
+          چنانچه سعادت میزبانی شما را نداریم، لطفاً ما را مطلع فرمایید.
+        </p>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- =====================================================
+     CLOSING
+     ===================================================== -->
+
+<section class="closing-section">
+
+
+  <div class="closing-arch">
+
+
+    <p class="bismillah">
+
+      در کنار هم برای همیشه
+
+    </p>
+
+
+    <p>
+
+      حضور سبز شما، بر زیبایی این شب می‌افزاید
+
+    </p>
+
+
+    <div class="ornament light">
+
+      <i></i>
+
+    </div>
+
+
+    <h2>
+
+      Thank You
+
+    </h2>
+
+
+    <p class="closing-names">
+
+      Ali &amp; Mobina
+
+    </p>
+
+
+    <small>
+
+      26 شهریور 1405
+
+    </small>
+
+
+  </div>
+
+
+</section>
+
+
+</main>
+
+
+<!-- =====================================================
+     BACKGROUND MUSIC
+     ===================================================== -->
+
+<audio
+  id="bgMusic"
+  src="assets/music.mp3"
+  loop
+  preload="auto"
+></audio>
+
+
+<script>
+
+/* =====================================================
+   ELEMENTS
+   ===================================================== */
+
+const hero =
+  document.getElementById('hero');
+
+const heroVideo =
+  document.getElementById('heroVideo');
+
+const bgMusic =
+  document.getElementById('bgMusic');
+
+const musicToggle =
+  document.getElementById('musicToggle');
+
+
+let started = false;
+
+
+/* =====================================================
+   START EXPERIENCE
+   ===================================================== */
+
+/*
+   فقط با اولین لمس/کلیک اجرا می‌شود.
+
+   توجه:
+   اینجا عمداً is-open نداریم.
+   چون is-open باعث نمایش زودهنگام متن می‌شد.
+*/
+
+function startExperience() {
+
+
+  if (started) {
+    return;
+  }
+
+
+  started = true;
+
+
+  /*
+    وضعیت پخش
+  */
+
+  hero.classList.add('is-playing');
+
+
+  /*
+    اطمینان از شروع ویدیو از ابتدا
+  */
+
+  try {
+
+    heroVideo.currentTime = 0;
+
+  } catch (error) {
+
+    console.log(error);
+
+  }
+
+
+  /*
+    صدای خود ویدیو خاموش باشد.
+    موزیک جداگانه پخش می‌شود.
+  */
+
+  heroVideo.muted = true;
+
+
+  /*
+    شروع ویدیو
+  */
+
+  heroVideo
+    .play()
+    .then(() => {
+
+      console.log('VIDEO STARTED');
+
+    })
+    .catch((error) => {
+
+      console.error(
+        'VIDEO ERROR:',
+        error
+      );
+
+    });
+
+
+  /*
+    شروع موزیک
+  */
+
+  bgMusic.volume = 0.7;
+
+
+  bgMusic
+    .play()
+    .then(() => {
+
+      console.log('MUSIC STARTED');
+
+    })
+    .catch((error) => {
+
+      console.error(
+        'MUSIC ERROR:',
+        error
+      );
+
+    });
+
+}
+
+
+/* =====================================================
+   START BY CLICK
+   ===================================================== */
+
+hero.addEventListener(
+  'click',
+  startExperience
+);
+
+
+/* =====================================================
+   START BY TOUCH
+   ===================================================== */
+
+hero.addEventListener(
+  'touchend',
+  startExperience,
+  {
+    once: true,
+    passive: true
+  }
+);
+
+
+/* =====================================================
+   VIDEO ENDED
+   ===================================================== */
+
+/*
+   این مهم‌ترین قسمت کد است.
+
+   هیچ متنی قبل از این قسمت نمایش داده نمی‌شود.
+
+   وقتی ویدیو واقعاً تمام شد:
+   1. ویدیو متوقف می‌شود
+   2. روی فریم آخر باقی می‌ماند
+   3. is-finished اضافه می‌شود
+   4. متن دعوتنامه ظاهر می‌شود
+   5. اسکرول آزاد می‌شود
+   6. دکمه موزیک ظاهر می‌شود
+*/
+
+heroVideo.addEventListener(
+  'ended',
+  function () {
+
+
+    console.log('VIDEO FINISHED');
+
+
+    /*
+      ویدیو روی آخرین فریم بماند
+    */
+
+    heroVideo.pause();
+
+
+    /*
+      پایان Intro
+    */
+
+    hero.classList.remove(
+      'is-playing'
+    );
+
+
+    hero.classList.add(
+      'is-finished'
+    );
+
+
+    /*
+      آزاد کردن اسکرول
+    */
+
+    document.body.classList.remove(
+      'intro-locked'
+    );
+
+
+    document.body.classList.add(
+      'intro-finished'
+    );
+
+
+  }
+);
+
+
+/* =====================================================
+   MUSIC BUTTON
+   ===================================================== */
+
+musicToggle.addEventListener(
+  'click',
+  function (e) {
+
+
+    /*
+      کلیک روی دکمه موزیک
+      باعث کلیک Hero نشود.
+    */
+
+    e.stopPropagation();
+
+
+    /*
+      اگر somehow قبل از شروع ویدیو
+      روی دکمه کلیک شد،
+      تجربه را شروع کن.
+    */
+
+    if (!started) {
+
+      startExperience();
+
+      return;
+
+    }
+
+
+    /*
+      روشن کردن موزیک
+    */
+
+    if (bgMusic.paused) {
+
+
+      bgMusic
+        .play()
+        .then(() => {
+
+          musicToggle.classList.add(
+            'is-playing'
+          );
+
+        })
+        .catch((error) => {
+
+          console.error(
+            'MUSIC ERROR:',
+            error
+          );
+
+        });
+
+
+    }
+
+    /*
+      خاموش کردن موزیک
+    */
+
+    else {
+
+
+      bgMusic.pause();
+
+
+      musicToggle.classList.remove(
+        'is-playing'
+      );
+
+
+    }
+
+  }
+);
+
+
+/* =====================================================
+   SCROLL REVEAL
+   ===================================================== */
+
+const revealEls =
+  document.querySelectorAll(
+    '.reveal'
+  );
+
+
+const io =
+  new IntersectionObserver(
+    (entries) => {
+
+
+      entries.forEach(
+        (entry) => {
+
+
+          if (
+            entry.isIntersecting
+          ) {
+
+
+            entry.target.classList.add(
+              'is-visible'
+            );
+
+
+            io.unobserve(
+              entry.target
+            );
+
+
+          }
+
+        }
+      );
+
+
+    },
+    {
+      threshold: 0.15
+    }
+  );
+
+
+revealEls.forEach(
+  (el) => io.observe(el)
+);
+
+
+/* =====================================================
+   SCRATCH CARD
+   ===================================================== */
+
+const scratchWrap =
+  document.getElementById(
+    'scratchWrap'
+  );
+
+
+const canvas =
+  document.getElementById(
+    'scratchCanvas'
+  );
+
+
+const ctx =
+  canvas.getContext('2d');
+
+
+const scratchHint =
+  document.getElementById(
+    'scratchHint'
+  );
+
+
+const scratchNote =
+  document.getElementById(
+    'scratchNote'
+  );
+
+
+let revealed = false;
+
+
+/* =====================================================
+   CANVAS SIZE
+   ===================================================== */
+
+function sizeCanvas() {
+
+
+  const rect =
+    scratchWrap.getBoundingClientRect();
+
+
+  canvas.width =
+    rect.width;
+
+
+  canvas.height =
+    rect.height;
+
+
+  paintScratchLayer();
+
+}
+
+
+/* =====================================================
+   PAINT SCRATCH LAYER
+   ===================================================== */
+
+function paintScratchLayer() {
+
+
+  ctx.globalCompositeOperation =
+    'source-over';
+
+
+  const grad =
+    ctx.createLinearGradient(
+      0,
+      0,
+      canvas.width,
+      canvas.height
+    );
+
+
+  grad.addColorStop(
+    0,
+    '#B98A46'
+  );
+
+
+  grad.addColorStop(
+    0.5,
+    '#E7D3B8'
+  );
+
+
+  grad.addColorStop(
+    1,
+    '#B98A46'
+  );
+
+
+  ctx.fillStyle =
+    grad;
+
+
+  ctx.fillRect(
+    0,
+    0,
+    canvas.width,
+    canvas.height
+  );
+
+
+  ctx.fillStyle =
+    'rgba(58,7,12,0.85)';
+
+
+  ctx.font =
+    `${Math.max(
+      16,
+      canvas.width * 0.045
+    )}px "Cormorant Infant", serif`;
+
+
+  ctx.textAlign =
+    'center';
+
+
+  ctx.textBaseline =
+    'middle';
+
+
+  ctx.fillText(
+    'برای دیدن تاریخ اینجا را بکشید',
+    canvas.width / 2,
+    canvas.height / 2
+  );
+
+}
+
+
+/* =====================================================
+   TOUCH POSITION
+   ===================================================== */
+
+function getPos(e) {
+
+
+  const rect =
+    canvas.getBoundingClientRect();
+
+
+  const point =
+    e.touches
+      ? e.touches[0]
+      : e;
+
+
+  return {
+
+
+    x:
+      (
+        point.clientX -
+        rect.left
+      )
+      *
+      (
+        canvas.width /
+        rect.width
+      ),
+
+
+    y:
+      (
+        point.clientY -
+        rect.top
+      )
+      *
+      (
+        canvas.height /
+        rect.height
+      )
+
+
+  };
+
+}
+
+
+let scratching = false;
+
+
+/* =====================================================
+   SCRATCH
+   ===================================================== */
+
+function scratchAt(x, y) {
+
+
+  ctx.globalCompositeOperation =
+    'destination-out';
+
+
+  ctx.beginPath();
+
+
+  ctx.arc(
+    x,
+    y,
+    Math.max(
+      canvas.width * 0.06,
+      28
+    ),
+    0,
+    Math.PI * 2
+  );
+
+
+  ctx.fill();
+
+}
+
+
+/* =====================================================
+   CHECK PROGRESS
+   ===================================================== */
+
+function checkRevealProgress() {
+
+
+  if (revealed) {
+    return;
+  }
+
+
+  const data =
+    ctx.getImageData(
+      0,
+      0,
+      canvas.width,
+      canvas.height
+    ).data;
+
+
+  let cleared = 0;
+
+  let total = 0;
+
+
+  const step =
+    40 * 4;
+
+
+  for (
+    let i = 3;
+    i < data.length;
+    i += step
+  ) {
+
+
+    total++;
+
+
+    if (
+      data[i] < 40
+    ) {
+
+      cleared++;
+
+    }
+
+  }
+
+
+  if (
+    cleared / total > 0.5
+  ) {
+
+    revealScratch();
+
+  }
+
+}
+
+
+/* =====================================================
+   REVEAL DATE
+   ===================================================== */
+
+function revealScratch() {
+
+
+  revealed = true;
+
+
+  canvas.style.transition =
+    'opacity .7s ease, transform .8s ease';
+
+
+  canvas.style.opacity =
+    '0';
+
+
+  canvas.style.transform =
+    'scale(1.04)';
+
+
+  setTimeout(
+    () => {
+
+      canvas.style.display =
+        'none';
+
+    },
+    750
+  );
+
+
+  scratchWrap.classList.add(
+    'is-revealed'
+  );
+
+
+  scratchHint.hidden =
+    true;
+
+
+  scratchNote.hidden =
+    false;
+
+  /* وقتی تاریخ کامل نمایان شد، بارش گلبرگ‌ها بلافاصله شروع می‌شود */
+  startPetalFall();
+
+}
+
+
+/* =====================================================
+   SCRATCH START
+   ===================================================== */
+
+function handleStart(e) {
+
+
+  scratching = true;
+
+
+  const p =
+    getPos(e);
+
+
+  scratchAt(
+    p.x,
+    p.y
+  );
+
+}
+
+
+/* =====================================================
+   SCRATCH MOVE
+   ===================================================== */
+
+function handleMove(e) {
+
+
+  if (!scratching) {
+    return;
+  }
+
+
+  e.preventDefault();
+
+
+  const p =
+    getPos(e);
+
+
+  scratchAt(
+    p.x,
+    p.y
+  );
+
+
+  checkRevealProgress();
+
+}
+
+
+/* =====================================================
+   SCRATCH END
+   ===================================================== */
+
+function handleEnd() {
+
+
+  scratching = false;
+
+
+  checkRevealProgress();
+
+}
+
+
+/* =====================================================
+   MOUSE EVENTS
+   ===================================================== */
+
+canvas.addEventListener(
+  'mousedown',
+  handleStart
+);
+
+
+canvas.addEventListener(
+  'mousemove',
+  handleMove
+);
+
+
+window.addEventListener(
+  'mouseup',
+  handleEnd
+);
+
+
+/* =====================================================
+   TOUCH EVENTS
+   ===================================================== */
+
+canvas.addEventListener(
+  'touchstart',
+  handleStart,
+  {
+    passive: true
+  }
+);
+
+
+canvas.addEventListener(
+  'touchmove',
+  handleMove,
+  {
+    passive: false
+  }
+);
+
+
+canvas.addEventListener(
+  'touchend',
+  handleEnd
+);
+
+
+/* =====================================================
+   RESIZE
+   ===================================================== */
+
+window.addEventListener(
+  'resize',
+  () => {
+
+    if (!revealed) {
+
+      sizeCanvas();
+
+    }
+
+  }
+);
+
+
+/* =====================================================
+   INIT SCRATCH CARD
+   ===================================================== */
+
+sizeCanvas();
+
+
+
+/* =====================================================
+   RED PETALS — START WHEN THE DATE IS FULLY REVEALED
+   ===================================================== */
+
+const petalCanvas =
+  document.getElementById('petalCanvas');
+
+const petalCtx =
+  petalCanvas.getContext('2d');
+
+let petals = [];
+let petalAnimationId = null;
+let petalStartTime = 0;
+
+function resizePetalCanvas() {
+  const dpr = Math.min(window.devicePixelRatio || 1, 2);
+
+  petalCanvas.width = Math.floor(window.innerWidth * dpr);
+  petalCanvas.height = Math.floor(window.innerHeight * dpr);
+
+  petalCanvas.style.width = window.innerWidth + 'px';
+  petalCanvas.style.height = window.innerHeight + 'px';
+
+  petalCtx.setTransform(dpr, 0, 0, dpr, 0, 0);
+}
+
+function createPetal(startAnywhere = false) {
+  const size =
+    7 + Math.random() * 12;
+
+  return {
+    x:
+      Math.random() * window.innerWidth,
+
+    y:
+      startAnywhere
+        ? Math.random() * window.innerHeight
+        : -20 - Math.random() * window.innerHeight * 0.35,
+
+    size,
+
+    speed:
+      1.8 + Math.random() * 3.4,
+
+    drift:
+      -0.7 + Math.random() * 1.4,
+
+    rotation:
+      Math.random() * Math.PI * 2,
+
+    rotationSpeed:
+      -0.045 + Math.random() * 0.09,
+
+    swing:
+      Math.random() * Math.PI * 2,
+
+    swingSpeed:
+      0.015 + Math.random() * 0.035,
+
+    opacity:
+      0.72 + Math.random() * 0.28,
+
+    width:
+      0.65 + Math.random() * 0.45,
+
+    height:
+      0.8 + Math.random() * 0.65,
+
+    color:
+      Math.random() > 0.45
+        ? '#9d0b16'
+        : Math.random() > 0.5
+          ? '#c51624'
+          : '#e12b38'
+  };
+}
+
+function drawPetal(p) {
+  petalCtx.save();
+
+  petalCtx.translate(p.x, p.y);
+  petalCtx.rotate(p.rotation);
+
+  petalCtx.globalAlpha = p.opacity;
+
+  petalCtx.beginPath();
+
+  petalCtx.moveTo(0, -p.size * p.height);
+
+  petalCtx.bezierCurveTo(
+    p.size * 0.95,
+    -p.size * 0.7,
+    p.size * 1.15,
+    p.size * 0.45,
+    0,
+    p.size * p.height
+  );
+
+  petalCtx.bezierCurveTo(
+    -p.size * 1.15,
+    p.size * 0.45,
+    -p.size * 0.95,
+    -p.size * 0.7,
+    0,
+    -p.size * p.height
+  );
+
+  petalCtx.closePath();
+
+  petalCtx.fillStyle = p.color;
+  petalCtx.fill();
+
+  /* subtle highlight */
+  petalCtx.beginPath();
+  petalCtx.ellipse(
+    -p.size * 0.18,
+    -p.size * 0.18,
+    p.size * 0.12,
+    p.size * 0.35,
+    -0.35,
+    0,
+    Math.PI * 2
+  );
+
+  petalCtx.fillStyle = 'rgba(255,255,255,.18)';
+  petalCtx.fill();
+
+  petalCtx.restore();
+}
+
+function startPetalFall() {
+  if (!petalCanvas) return;
+
+  cancelAnimationFrame(petalAnimationId);
+
+  resizePetalCanvas();
+
+  petals = [];
+
+  /* بارش پرگلبرگ و کاملاً قابل مشاهده */
+  const count =
+    window.innerWidth < 600 ? 180 : 280;
+
+  for (let i = 0; i < count; i++) {
+    petals.push(createPetal(true));
+  }
+
+  petalCanvas.classList.add('is-active');
+
+  petalStartTime = performance.now();
+
+  function animatePetals(now) {
+    const elapsed =
+      now - petalStartTime;
+
+    petalCtx.clearRect(
+      0,
+      0,
+      window.innerWidth,
+      window.innerHeight
+    );
+
+    for (const p of petals) {
+      p.y += p.speed;
+
+      p.x +=
+        p.drift +
+        Math.sin(
+          p.swing
+        ) * 0.55;
+
+      p.swing += p.swingSpeed;
+
+      p.rotation += p.rotationSpeed;
+
+      /* Wrap horizontally */
+      if (p.x < -30) {
+        p.x = window.innerWidth + 30;
+      }
+
+      if (p.x > window.innerWidth + 30) {
+        p.x = -30;
+      }
+
+      /* Recycle petals that reach the bottom */
+      if (p.y > window.innerHeight + 30) {
+        Object.assign(
+          p,
+          createPetal(false)
+        );
+      }
+
+      drawPetal(p);
+    }
+
+    /*
+      Keep the shower going for about 12 seconds,
+      then let the remaining petals finish falling.
+    */
+    if (elapsed < 12000) {
+      petalAnimationId =
+        requestAnimationFrame(animatePetals);
+    } else {
+      petalCanvas.classList.remove('is-active');
+
+      setTimeout(() => {
+        petalCtx.clearRect(
+          0,
+          0,
+          window.innerWidth,
+          window.innerHeight
+        );
+      }, 300);
+    }
+  }
+
+  petalAnimationId =
+    requestAnimationFrame(animatePetals);
+}
+
+window.addEventListener(
+  'resize',
+  resizePetalCanvas
+);
+
+</script>
+
+</body>
+</html>
