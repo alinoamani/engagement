@@ -17,7 +17,7 @@
 <style>
 
 /* =====================================================
-   PAGE RESET — حذف فاصله خالی بالای صفحه
+   PAGE RESET
    ===================================================== */
 
 html,
@@ -39,7 +39,7 @@ body {
 
 
 /* =====================================================
-   VIDEO INTRO — FINAL FIX
+   VIDEO INTRO
    ===================================================== */
 
 body.intro-locked {
@@ -48,11 +48,6 @@ body.intro-locked {
   height: 100svh !important;
 }
 
-
-/* =====================================================
-   HERO CONTENT
-   ===================================================== */
-
 .hero .hero-content {
   opacity: 0 !important;
   visibility: hidden !important;
@@ -60,12 +55,6 @@ body.intro-locked {
   transform: translateY(25px);
   animation: none !important;
 }
-
-
-/*
-   فقط بعد از پایان کامل ویدیو
-   متن دعوتنامه نمایش داده می‌شود.
-*/
 
 .hero.is-finished .hero-content {
   opacity: 1 !important;
@@ -79,22 +68,11 @@ body.intro-locked {
     both !important;
 }
 
-
-/*
-   نوشته «برای شروع لمس کنید»
-*/
-
 .opening-mark {
   opacity: 1 !important;
   visibility: visible !important;
   pointer-events: auto;
 }
-
-
-/*
-   به محض شروع ویدیو،
-   نوشته شروع کاملاً محو می‌شود.
-*/
 
 .hero.is-playing .opening-mark {
   opacity: 0 !important;
@@ -102,21 +80,11 @@ body.intro-locked {
   pointer-events: none !important;
 }
 
-
-/*
-   بعد از پایان هم نوشته شروع مخفی می‌ماند.
-*/
-
 .hero.is-finished .opening-mark {
   opacity: 0 !important;
   visibility: hidden !important;
   pointer-events: none !important;
 }
-
-
-/*
-   دکمه موزیک قبل از پایان ویدیو مخفی است.
-*/
 
 .music-toggle {
   opacity: 0 !important;
@@ -124,21 +92,11 @@ body.intro-locked {
   pointer-events: none !important;
 }
 
-
-/*
-   بعد از پایان ویدیو دکمه موزیک ظاهر می‌شود.
-*/
-
 body.intro-finished .music-toggle {
   opacity: 1 !important;
   visibility: visible !important;
   pointer-events: auto !important;
 }
-
-
-/*
-   انیمیشن ورود متن دعوتنامه
-*/
 
 @keyframes invitationReveal {
 
@@ -156,20 +114,9 @@ body.intro-finished .music-toggle {
 
 }
 
-
-/*
-   ویدیو Loop ندارد.
-*/
-
 .hero-video {
   display: block;
 }
-
-
-/*
-   در زمان Intro هیچ بخش دیگری
-   نباید قابل مشاهده/اسکرول باشد.
-*/
 
 body.intro-locked main {
   overflow: hidden !important;
@@ -243,13 +190,9 @@ body.intro-locked main {
 
 }
 
-</style>
-
-
-<style id="petal-effect-style">
 
 /* =====================================================
-   RED PETAL FALL EFFECT
+   RED PETAL EFFECT
    ===================================================== */
 
 #petalCanvas {
@@ -281,7 +224,6 @@ body.intro-locked main {
 ></canvas>
 
 
-
 <!-- =====================================================
      MUSIC BUTTON
      ===================================================== -->
@@ -300,7 +242,6 @@ body.intro-locked main {
   </span>
 
 </button>
-
 
 
 <main>
@@ -332,7 +273,6 @@ body.intro-locked main {
   <div class="hero-geometry"></div>
 
 
-
   <!-- =================================================
        OPENING SCREEN
        ================================================= -->
@@ -350,7 +290,6 @@ body.intro-locked main {
     <span class="opening-ripple"></span>
 
   </div>
-
 
 
   <!-- =================================================
@@ -430,7 +369,6 @@ body.intro-locked main {
 </section>
 
 
-
 <!-- =====================================================
      WELCOME
      ===================================================== -->
@@ -480,9 +418,7 @@ body.intro-locked main {
 
 
       <p class="signature">
-
         Ali &amp; Mobina
-
       </p>
 
     </div>
@@ -490,7 +426,6 @@ body.intro-locked main {
   </div>
 
 </section>
-
 
 
 <!-- =====================================================
@@ -509,24 +444,19 @@ body.intro-locked main {
 
     <div class="section-heading">
 
-
       <span class="eyebrow">
         تاریخ مراسم
       </span>
-
 
       <h2>
         The Date
       </h2>
 
-
       <div class="ornament">
         <i></i>
       </div>
 
-
     </div>
-
 
 
     <div
@@ -537,26 +467,21 @@ body.intro-locked main {
 
       <div class="date-reveal">
 
-
         <p class="date-kicker">
           جشن نامزدی
         </p>
-
 
         <p class="date-main">
           26 شهریور 1405
         </p>
 
-
         <p class="date-day">
           پنجشنبه
         </p>
 
-
         <p class="date-time">
           ساعت ۱۹:۰۰
         </p>
-
 
       </div>
 
@@ -574,9 +499,7 @@ body.intro-locked main {
       class="scratch-hint"
       id="scratchHint"
     >
-
       با انگشت‌تان روی کارت بکشید تا تاریخ آشکار شود
-
     </p>
 
 
@@ -585,16 +508,13 @@ body.intro-locked main {
       id="scratchNote"
       hidden
     >
-
       در تقویم‌تان یادداشت کنید — منتظرتان هستیم
-
     </p>
 
 
   </div>
 
 </section>
-
 
 
 <!-- =====================================================
@@ -612,24 +532,19 @@ body.intro-locked main {
 
     <div class="section-heading">
 
-
       <span class="eyebrow">
         برنامه مراسم
       </span>
-
 
       <h2>
         Program
       </h2>
 
-
       <div class="ornament">
         <i></i>
       </div>
 
-
     </div>
-
 
 
     <div class="timeline">
@@ -658,7 +573,6 @@ body.intro-locked main {
       </article>
 
 
-
       <!-- 20:00 -->
 
       <article>
@@ -680,7 +594,6 @@ body.intro-locked main {
         </time>
 
       </article>
-
 
 
       <!-- 21:00 -->
@@ -706,8 +619,7 @@ body.intro-locked main {
       </article>
 
 
-
-      <!-- 22:00 -->
+      <!-- 23:00 -->
 
       <article>
 
@@ -724,7 +636,7 @@ body.intro-locked main {
         </div>
 
         <time>
-          ۲۲:۰۰
+          ۲۳:۰۰
         </time>
 
       </article>
@@ -735,7 +647,6 @@ body.intro-locked main {
   </div>
 
 </section>
-
 
 
 <!-- =====================================================
@@ -774,15 +685,18 @@ body.intro-locked main {
       </p>
 
 
+      <!--
+        لینک مستقیم Google Maps
+        به جای لینک کوتاه maps.app.goo.gl
+      -->
+
       <a
         class="venue-map-button"
-        href="https://maps.app.goo.gl/U9QhxB9HbpgUjGHe7?g_st=ic"
+        href="https://www.google.com/maps/search/?api=1&query=35.7367365,51.3336835"
         target="_blank"
-        rel="noopener"
+        rel="noopener noreferrer"
       >
-
         مشاهده مسیر روی نقشه
-
       </a>
 
 
@@ -791,7 +705,6 @@ body.intro-locked main {
   </div>
 
 </section>
-
 
 
 <!-- =====================================================
@@ -813,18 +726,15 @@ body.intro-locked main {
         یادآوری
       </span>
 
-
       <h2>
         نکات مراسم
       </h2>
-
 
       <div class="ornament">
         <i></i>
       </div>
 
     </div>
-
 
 
     <div class="notes-card">
@@ -839,14 +749,11 @@ body.intro-locked main {
         </span>
 
         <p>
-
           حضور شما در تک‌تک لحظات این شب برای ما ارزشمند است؛
           لطفاً رأس ساعت آغاز جشن در کنار ما باشید.
-
         </p>
 
       </div>
-
 
 
       <!-- 2 -->
@@ -858,13 +765,10 @@ body.intro-locked main {
         </span>
 
         <p>
-
           احتراماً در نظر داشته باشید مراسم به صورت مختلط برگزار می‌شود.
-
         </p>
 
       </div>
-
 
 
       <!-- 3 -->
@@ -876,16 +780,13 @@ body.intro-locked main {
         </span>
 
         <p>
-
           چنانچه سعادت میزبانی شما را نداریم، لطفاً ما را مطلع فرمایید.
-
         </p>
 
       </div>
 
 
-
-      <!-- 4 — عکاسی، آخرین بند -->
+      <!-- 4 - آخرین بند -->
 
       <div class="note-item">
 
@@ -894,10 +795,8 @@ body.intro-locked main {
         </span>
 
         <p>
-
           خواهشمندیم از عکاسی و فیلم‌برداری در طول مراسم اکیداً خودداری فرمایید
           و ثبت لحظات این شب را به تیم عکاسی بسپارید.
-
         </p>
 
       </div>
@@ -908,7 +807,6 @@ body.intro-locked main {
   </div>
 
 </section>
-
 
 
 <!-- =====================================================
@@ -922,44 +820,32 @@ body.intro-locked main {
 
 
     <p class="bismillah">
-
       در کنار هم برای همیشه
-
     </p>
 
 
     <p>
-
       حضور سبز شما، بر زیبایی این شب می‌افزاید
-
     </p>
 
 
     <div class="ornament light">
-
       <i></i>
-
     </div>
 
 
     <h2>
-
       Thank You
-
     </h2>
 
 
     <p class="closing-names">
-
       Ali &amp; Mobina
-
     </p>
 
 
     <small>
-
       26 شهریور 1405
-
     </small>
 
 
@@ -972,7 +858,6 @@ body.intro-locked main {
 </main>
 
 
-
 <!-- =====================================================
      BACKGROUND MUSIC
      ===================================================== -->
@@ -983,7 +868,6 @@ body.intro-locked main {
   loop
   preload="auto"
 ></audio>
-
 
 
 <script>
@@ -1020,17 +904,10 @@ function startExperience() {
 
   started = true;
 
+  hero.classList.add(
+    'is-playing'
+  );
 
-  /*
-    وضعیت پخش
-  */
-
-  hero.classList.add('is-playing');
-
-
-  /*
-    اطمینان از شروع ویدیو از ابتدا
-  */
 
   try {
 
@@ -1043,23 +920,16 @@ function startExperience() {
   }
 
 
-  /*
-    صدای خود ویدیو خاموش باشد.
-    موزیک جداگانه پخش می‌شود.
-  */
-
   heroVideo.muted = true;
 
-
-  /*
-    شروع ویدیو
-  */
 
   heroVideo
     .play()
     .then(() => {
 
-      console.log('VIDEO STARTED');
+      console.log(
+        'VIDEO STARTED'
+      );
 
     })
     .catch((error) => {
@@ -1072,10 +942,6 @@ function startExperience() {
     });
 
 
-  /*
-    شروع موزیک
-  */
-
   bgMusic.volume = 0.7;
 
 
@@ -1083,7 +949,9 @@ function startExperience() {
     .play()
     .then(() => {
 
-      console.log('MUSIC STARTED');
+      console.log(
+        'MUSIC STARTED'
+      );
 
       musicToggle.classList.add(
         'is-playing'
@@ -1134,19 +1002,13 @@ heroVideo.addEventListener(
   'ended',
   function () {
 
-    console.log('VIDEO FINISHED');
+    console.log(
+      'VIDEO FINISHED'
+    );
 
-
-    /*
-      ویدیو روی آخرین فریم بماند
-    */
 
     heroVideo.pause();
 
-
-    /*
-      پایان Intro
-    */
 
     hero.classList.remove(
       'is-playing'
@@ -1157,10 +1019,6 @@ heroVideo.addEventListener(
       'is-finished'
     );
 
-
-    /*
-      آزاد کردن اسکرول
-    */
 
     document.body.classList.remove(
       'intro-locked'
@@ -1183,19 +1041,8 @@ musicToggle.addEventListener(
   'click',
   function (e) {
 
-    /*
-      کلیک روی دکمه موزیک
-      باعث کلیک Hero نشود.
-    */
-
     e.stopPropagation();
 
-
-    /*
-      اگر somehow قبل از شروع ویدیو
-      روی دکمه کلیک شد،
-      تجربه را شروع کن.
-    */
 
     if (!started) {
 
@@ -1205,10 +1052,6 @@ musicToggle.addEventListener(
 
     }
 
-
-    /*
-      روشن کردن موزیک
-    */
 
     if (bgMusic.paused) {
 
@@ -1231,11 +1074,6 @@ musicToggle.addEventListener(
         });
 
     }
-
-
-    /*
-      خاموش کردن موزیک
-    */
 
     else {
 
@@ -1306,22 +1144,20 @@ const scratchWrap =
     'scratchWrap'
   );
 
-
 const canvas =
   document.getElementById(
     'scratchCanvas'
   );
 
-
 const ctx =
-  canvas.getContext('2d');
-
+  canvas.getContext(
+    '2d'
+  );
 
 const scratchHint =
   document.getElementById(
     'scratchHint'
   );
-
 
 const scratchNote =
   document.getElementById(
@@ -1484,7 +1320,10 @@ let scratching = false;
    SCRATCH
    ===================================================== */
 
-function scratchAt(x, y) {
+function scratchAt(
+  x,
+  y
+) {
 
   ctx.globalCompositeOperation =
     'destination-out';
@@ -1615,11 +1454,6 @@ function revealScratch() {
     false;
 
 
-  /*
-    وقتی تاریخ کامل نمایان شد،
-    بارش گلبرگ‌ها بلافاصله شروع می‌شود.
-  */
-
   startPetalFall();
 
 }
@@ -1682,7 +1516,6 @@ function handleMove(e) {
 function handleEnd() {
 
   scratching = false;
-
 
   checkRevealProgress();
 
@@ -1764,16 +1597,20 @@ window.addEventListener(
 sizeCanvas();
 
 
-
 /* =====================================================
-   RED PETALS — START WHEN DATE IS FULLY REVEALED
+   RED PETALS
    ===================================================== */
 
 const petalCanvas =
-  document.getElementById('petalCanvas');
+  document.getElementById(
+    'petalCanvas'
+  );
 
 const petalCtx =
-  petalCanvas.getContext('2d');
+  petalCanvas.getContext(
+    '2d'
+  );
+
 
 let petals = [];
 
@@ -1830,7 +1667,8 @@ function createPetal(
 ) {
 
   const size =
-    7 + Math.random() * 12;
+    7 +
+    Math.random() * 12;
 
 
   return {
@@ -1937,30 +1775,22 @@ function drawPetal(p) {
 
 
   petalCtx.bezierCurveTo(
-
     p.size * 0.95,
     -p.size * 0.7,
-
     p.size * 1.15,
     p.size * 0.45,
-
     0,
     p.size * p.height
-
   );
 
 
   petalCtx.bezierCurveTo(
-
     -p.size * 1.15,
     p.size * 0.45,
-
     -p.size * 0.95,
     -p.size * 0.7,
-
     0,
     -p.size * p.height
-
   );
 
 
@@ -1974,25 +1804,17 @@ function drawPetal(p) {
   petalCtx.fill();
 
 
-  /*
-    subtle highlight
-  */
-
   petalCtx.beginPath();
 
 
   petalCtx.ellipse(
-
     -p.size * 0.18,
     -p.size * 0.18,
-
     p.size * 0.12,
     p.size * 0.35,
-
     -0.35,
     0,
     Math.PI * 2
-
   );
 
 
@@ -2025,10 +1847,6 @@ function startPetalFall() {
 
   petals = [];
 
-
-  /*
-    بارش پرگلبرگ و کاملاً قابل مشاهده
-  */
 
   const count =
     window.innerWidth < 600
@@ -2066,19 +1884,19 @@ function startPetalFall() {
 
 
     petalCtx.clearRect(
-
       0,
       0,
-
       window.innerWidth,
       window.innerHeight
-
     );
 
 
-    for (const p of petals) {
+    for (
+      const p of petals
+    ) {
 
-      p.y += p.speed;
+      p.y +=
+        p.speed;
 
 
       p.x +=
@@ -2095,10 +1913,6 @@ function startPetalFall() {
       p.rotation +=
         p.rotationSpeed;
 
-
-      /*
-        Wrap horizontally
-      */
 
       if (
         p.x < -30
@@ -2121,10 +1935,6 @@ function startPetalFall() {
       }
 
 
-      /*
-        Recycle petals
-      */
-
       if (
         p.y >
         window.innerHeight + 30
@@ -2142,11 +1952,6 @@ function startPetalFall() {
 
     }
 
-
-    /*
-      Keep the shower going
-      for about 12 seconds.
-    */
 
     if (
       elapsed < 12000
@@ -2170,13 +1975,10 @@ function startPetalFall() {
         () => {
 
           petalCtx.clearRect(
-
             0,
             0,
-
             window.innerWidth,
             window.innerHeight
-
           );
 
         },
